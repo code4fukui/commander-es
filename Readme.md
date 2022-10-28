@@ -6,7 +6,6 @@ Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
 
 - [Commander.js](#commanderjs)
   - [Quick Start](#quick-start)
-  - [Declaring _program_ variable](#declaring-program-variable)
   - [Options](#options)
     - [Common option types, boolean and value](#common-option-types-boolean-and-value)
     - [Default option value](#default-option-value)
@@ -38,9 +37,6 @@ Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
     - [.parse() and .parseAsync()](#parse-and-parseasync)
     - [Parsing Configuration](#parsing-configuration)
     - [Legacy options as properties](#legacy-options-as-properties)
-    - [TypeScript](#typescript)
-    - [createCommand()](#createcommand)
-    - [Node options such as `--harmony`](#node-options-such-as---harmony)
     - [Debugging stand-alone executable subcommands](#debugging-stand-alone-executable-subcommands)
     - [Display error](#display-error)
     - [Override exit and output handling](#override-exit-and-output-handling)
@@ -88,7 +84,8 @@ Here is a more complete program using a subcommand and with descriptions for the
 Example file: [string-util.js](./examples/string-util.js)
 
 ```js
-const { Command } = require('commander');
+import * as commander from 'https://code4fukui.github.io/commander-es/index.js';
+const { Command } = commender;
 const program = new Command();
 
 program
@@ -128,36 +125,6 @@ $ deno run string-util.js split --separator=/ a/b/c
 ```
 
 More samples can be found in the [examples](https://github.com/tj/commander.js/tree/master/examples) directory.
-
-## Declaring _program_ variable
-
-Commander exports a global object which is convenient for quick programs.
-This is used in the examples in this README for brevity.
-
-```js
-// CommonJS (.cjs)
-const { program } = require('commander');
-```
-
-For larger programs which may use commander in multiple ways, including unit testing, it is better to create a local Command object to use.
-
-```js
-// CommonJS (.cjs)
-const { Command } = require('commander');
-const program = new Command();
-```
-
-```js
-// ECMAScript (.mjs)
-import { Command } from 'commander';
-const program = new Command();
-```
-
-```ts
-// TypeScript (.ts)
-import { Command } from 'commander';
-const program = new Command();
-```
 
 ## Options
 
@@ -997,34 +964,6 @@ program
   });
 ```
 
-### TypeScript
-
-If you use `ts-node` and  stand-alone executable subcommands written as `.ts` files, you need to call your program through node to get the subcommands called correctly. e.g.
-
-```sh
-node -r ts-node/register pm.ts
-```
-
-### createCommand()
-
-This factory function creates a new command. It is exported and may be used instead of using `new`, like:
-
-```js
-const { createCommand } = require('commander');
-const program = createCommand();
-```
-
-`createCommand` is also a method of the Command object, and creates a new command rather than a subcommand. This gets used internally
-when creating subcommands using `.command()`, and you may override it to
-customise the new subcommand (example file [custom-command-class.js](./examples/custom-command-class.js)).
-
-### Node options such as `--harmony`
-
-You can enable `--harmony` option in two ways:
-
-- Use `#! /usr/bin/env node --harmony` in the subcommands scripts. (Note Windows does not support this pattern.)
-- Use the `--harmony` option when call the command, like `node --harmony examples/pm publish`. The `--harmony` option will be preserved when spawning subcommand process.
-
 ### Debugging stand-alone executable subcommands
 
 An executable subcommand is launched as a separate child process.
@@ -1038,7 +977,7 @@ If you are using VSCode to debug executable subcommands you need to set the `"au
 
 This routine is available to invoke the Commander error handling for your own error conditions. (See also the next section about exit handling.)
 
-As well as the error message, you can optionally specify the `exitCode` (used with `process.exit`)
+As well as the error message, you can optionally specify the `exitCode` (used with `Deno.exit`)
 and `code` (used with `CommanderError`).
 
 ```js
@@ -1048,7 +987,7 @@ program.error('Custom processing has failed', { exitCode: 2, code: 'my.custom.er
 
 ### Override exit and output handling
 
-By default Commander calls `process.exit` when it detects errors, or after displaying the help or version. You can override
+By default Commander calls `Deno.exit` when it detects errors, or after displaying the help or version. You can override
 this behaviour and optionally supply a callback. The default override throws a `CommanderError`.
 
 The override callback is passed a `CommanderError` with properties `exitCode` number, `code` string, and `message`. The default override behaviour is to throw the error, except for async handling of executable subcommand completion which carries on. The normal display of error messages or version or help
