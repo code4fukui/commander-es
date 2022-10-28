@@ -1,10 +1,5 @@
 # commander-es
 
-[![Build Status](https://github.com/tj/commander.js/workflows/build/badge.svg)](https://github.com/tj/commander.js/actions?query=workflow%3A%22build%22)
-[![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)
-[![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://npmcharts.com/compare/commander?minimal=true)
-[![Install Size](https://packagephobia.now.sh/badge?p=commander)](https://packagephobia.now.sh/result?p=commander)
-
 The complete solution for [Deno](https://deno.land/) command-line interfaces.
 
 Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
@@ -81,10 +76,10 @@ console.log(program.args[0].split(options.separator, limit));
 ```
 
 ```console
-$ node split.js -s / --fits a/b/c
+$ deno run split.js -s / --fits a/b/c
 error: unknown option '--fits'
 (Did you mean --first?)
-$ node split.js -s / --first a/b/c
+$ deno run split.js -s / --first a/b/c
 [ 'a' ]
 ```
 
@@ -115,7 +110,7 @@ program.parse();
 ```
 
 ```console
-$ node string-util.js help split
+$ deno run string-util.js help split
 Usage: string-util split [options] <string>
 
 Split a string into substrings and display as an array.
@@ -128,7 +123,7 @@ Options:
   -s, --separator <char>  separator character (default: ",")
   -h, --help              display help for command
 
-$ node string-util.js split --separator=/ a/b/c
+$ deno run string-util.js split --separator=/ a/b/c
 [ 'a', 'b', 'c' ]
 ```
 
@@ -729,7 +724,7 @@ help option is `-h,--help`.
 Example file: [pizza](./examples/pizza)
 
 ```console
-$ node ./examples/pizza --help
+$ deno run ./examples/pizza --help
 Usage: pizza [options]
 
 An application for pizza ordering
