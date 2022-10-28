@@ -1,16 +1,15 @@
-# Commander.js
+# commander-es
 
 [![Build Status](https://github.com/tj/commander.js/workflows/build/badge.svg)](https://github.com/tj/commander.js/actions?query=workflow%3A%22build%22)
 [![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)
 [![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://npmcharts.com/compare/commander?minimal=true)
 [![Install Size](https://packagephobia.now.sh/badge?p=commander)](https://packagephobia.now.sh/result?p=commander)
 
-The complete solution for [node.js](http://nodejs.org) command-line interfaces.
+The complete solution for [Deno](https://deno.land/) command-line interfaces.
 
 Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
 
 - [Commander.js](#commanderjs)
-  - [Installation](#installation)
   - [Quick Start](#quick-start)
   - [Declaring _program_ variable](#declaring-program-variable)
   - [Options](#options)
@@ -56,12 +55,6 @@ Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
 
 For information about terms used in this document see: [terminology](./docs/terminology.md)
 
-## Installation
-
-```sh
-npm install commander
-```
-
 ## Quick Start
 
 You write code to describe your command line interface.
@@ -74,7 +67,7 @@ The two most used option types are a boolean option, and an option which takes i
 Example file: [split.js](./examples/split.js)
 
 ```js
-const { program } = require('commander');
+import { program } from 'https://code4fukui.github.io/commander-es/index.js';
 
 program
   .option('--first')

@@ -3,7 +3,7 @@
 // This example shows specifying the command arguments using argument() function.
 
 // const { Command } = require('commander'); // (normal include)
-const { Command } = require('../'); // include commander in git clone of commander repo
+import { Command } from '../index.js'; // include commander in git clone of commander repo
 const program = new Command();
 
 program
