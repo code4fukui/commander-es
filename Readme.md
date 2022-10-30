@@ -1,6 +1,6 @@
 # commander-es
 
-The complete solution for [Deno](https://deno.land/) command-line interfaces. (forked from [commander.js by tj](https://github.com/tj/commander.js))
+The complete solution for [Deno](https://deno.land/) command-line interfaces. (forked from [commander.js by tj](https://github.com/tj/commander.js) for [Node.js](https://nodejs.org/en/))
 
 Read this in other languages: English | [简体中文](./Readme_zh-CN.md)
 
