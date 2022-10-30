@@ -10,7 +10,7 @@
 // than to the subcommand. That is not shown here.)
 
 // const { Command } = require('commander'); // (normal include)
-const { Command } = require('../'); // include commander in git clone of commander repo
+import { Command } from '../index.js'; // include commander in git clone of commander repo
 
 // Common options can be added when subcommands are created by using a custom subclass.
 // If the options are unsorted in the help, these will appear first.

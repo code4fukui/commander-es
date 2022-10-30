@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // const commander = require('commander'); // (normal include)
-const { Command, Option } = require('../'); // include commander in git clone of commander repo
+import { Command, Option } from '../index.js'; // include commander in git clone of commander repo
 const program = new Command();
 
 // This example shows using some hooks for life cycle events.
