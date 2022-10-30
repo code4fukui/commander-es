@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // const commander = require('commander'); // (normal include)
-const commander = require('../'); // include commander in git clone of commander repo
+import * as commander from '../index.js'; // include commander in git clone of commander repo
 
 // Use a class override to customise the command and its subcommands.
 

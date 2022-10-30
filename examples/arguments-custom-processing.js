@@ -5,7 +5,7 @@
 //    You may specify a function to do custom processing of argument values.
 
 // const commander = require('commander'); // (normal include)
-const commander = require('../'); // include commander in git clone of commander repo
+import * as commander from '../index.js'; // include commander in git clone of commander repo
 const program = new commander.Command();
 
 function myParseInt(value, dummyPrevious) {

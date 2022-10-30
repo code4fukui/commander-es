@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 // const commander = require('commander'); // (normal include)
-const commander = require('../'); // include commander in git clone of commander repo
+import * as commander from '../index.js'; // include commander in git clone of commander repo
+import process from '../lib/nodelike/process.js';
 const program = new commander.Command();
 
 // Example program using the command configuration option isDefault to specify the default command.

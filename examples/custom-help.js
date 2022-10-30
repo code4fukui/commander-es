@@ -4,7 +4,7 @@
 // This is used as an example in the README.
 
 // const { Command } = require('commander'); // (normal include)
-const { Command } = require('../'); // include commander in git clone of commander repo
+import { Command } from '../index.js'; // include commander in git clone of commander repo
 const program = new Command();
 
 program
